@@ -114,8 +114,14 @@ namespace FinalProject
                         }
                     }
 
+                    // if enemy hitbox intersects with the player hitbox end game.
+                    if (enemies[i].Bounds.IntersectsWith(pbPlayer.Bounds))
+                    {
+                        EndGame(false);
+                    }
+
                     //Change enemy location
-                    enemies[i].Left -= 6;
+                    enemies[i].Left -= 5;
                 }                
             }
             else if(time >= 100 && gameContinues)

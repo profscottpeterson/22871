@@ -53,6 +53,7 @@
             // timerMoveEnemy
             // 
             this.timerMoveEnemy.Enabled = true;
+            this.timerMoveEnemy.Interval = 50;
             this.timerMoveEnemy.Tick += new System.EventHandler(this.timerMoveEnemy_Tick);
             // 
             // pbEnemy1
