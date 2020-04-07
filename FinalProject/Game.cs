@@ -34,6 +34,7 @@ namespace FinalProject
         public Game()
         {
             InitializeComponent();
+            CenterToParent();
 
             // Set player location
             xPlayerLoc = 50;

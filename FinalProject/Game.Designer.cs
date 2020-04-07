@@ -44,9 +44,10 @@
             // pbPlayer
             // 
             this.pbPlayer.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pbPlayer.Location = new System.Drawing.Point(66, 215);
+            this.pbPlayer.Location = new System.Drawing.Point(25, 90);
+            this.pbPlayer.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pbPlayer.Name = "pbPlayer";
-            this.pbPlayer.Size = new System.Drawing.Size(50, 50);
+            this.pbPlayer.Size = new System.Drawing.Size(19, 21);
             this.pbPlayer.TabIndex = 0;
             this.pbPlayer.TabStop = false;
             // 
@@ -59,9 +60,10 @@
             // pbEnemy1
             // 
             this.pbEnemy1.BackColor = System.Drawing.Color.Red;
-            this.pbEnemy1.Location = new System.Drawing.Point(950, 0);
+            this.pbEnemy1.Location = new System.Drawing.Point(356, 0);
+            this.pbEnemy1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pbEnemy1.Name = "pbEnemy1";
-            this.pbEnemy1.Size = new System.Drawing.Size(100, 200);
+            this.pbEnemy1.Size = new System.Drawing.Size(38, 84);
             this.pbEnemy1.TabIndex = 1;
             this.pbEnemy1.TabStop = false;
             // 
@@ -73,30 +75,36 @@
             // pbEnemy2
             // 
             this.pbEnemy2.BackColor = System.Drawing.Color.Red;
-            this.pbEnemy2.Location = new System.Drawing.Point(950, 200);
+            this.pbEnemy2.Location = new System.Drawing.Point(356, 84);
+            this.pbEnemy2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pbEnemy2.Name = "pbEnemy2";
-            this.pbEnemy2.Size = new System.Drawing.Size(100, 200);
+            this.pbEnemy2.Size = new System.Drawing.Size(38, 84);
             this.pbEnemy2.TabIndex = 2;
             this.pbEnemy2.TabStop = false;
             // 
             // pbEnemy3
             // 
             this.pbEnemy3.BackColor = System.Drawing.Color.Red;
-            this.pbEnemy3.Location = new System.Drawing.Point(950, 400);
+            this.pbEnemy3.Location = new System.Drawing.Point(356, 168);
+            this.pbEnemy3.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pbEnemy3.Name = "pbEnemy3";
-            this.pbEnemy3.Size = new System.Drawing.Size(100, 200);
+            this.pbEnemy3.Size = new System.Drawing.Size(38, 84);
             this.pbEnemy3.TabIndex = 3;
             this.pbEnemy3.TabStop = false;
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1468, 712);
+            this.ClientSize = new System.Drawing.Size(550, 299);
             this.Controls.Add(this.pbEnemy3);
             this.Controls.Add(this.pbEnemy2);
             this.Controls.Add(this.pbEnemy1);
             this.Controls.Add(this.pbPlayer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Game";
             this.Text = "Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);

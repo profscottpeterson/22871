@@ -35,9 +35,10 @@
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(71, 343);
+            this.btnNewGame.Location = new System.Drawing.Point(27, 144);
+            this.btnNewGame.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(198, 81);
+            this.btnNewGame.Size = new System.Drawing.Size(74, 34);
             this.btnNewGame.TabIndex = 0;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(681, 343);
+            this.btnExit.Location = new System.Drawing.Point(255, 144);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(198, 81);
+            this.btnExit.Size = new System.Drawing.Size(74, 34);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -57,20 +59,25 @@
             // 
             this.lblWin.AutoSize = true;
             this.lblWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWin.Location = new System.Drawing.Point(65, 125);
+            this.lblWin.Location = new System.Drawing.Point(24, 52);
+            this.lblWin.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblWin.Name = "lblWin";
-            this.lblWin.Size = new System.Drawing.Size(814, 76);
+            this.lblWin.Size = new System.Drawing.Size(333, 31);
             this.lblWin.TabIndex = 2;
             this.lblWin.Text = "Congratulations, you Win!!";
             // 
             // VictoryScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1057, 512);
+            this.ClientSize = new System.Drawing.Size(396, 215);
             this.Controls.Add(this.lblWin);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnNewGame);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VictoryScreen";
             this.Text = "VictoryScreen";
             this.ResumeLayout(false);

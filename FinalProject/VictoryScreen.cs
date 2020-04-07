@@ -20,6 +20,7 @@ namespace FinalProject
         public VictoryScreen()
         {
             InitializeComponent();
+            CenterToParent();
         }
 
         ///<summary>

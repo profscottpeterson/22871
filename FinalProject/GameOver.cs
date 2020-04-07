@@ -20,6 +20,7 @@ namespace FinalProject
         public GameOver()
         {
             InitializeComponent();
+            CenterToParent();
         }
 
         ///<summary>

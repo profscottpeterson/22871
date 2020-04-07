@@ -20,6 +20,7 @@ namespace FinalProject
         public FormMainMenu()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         ///<summary>
