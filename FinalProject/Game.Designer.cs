@@ -35,6 +35,8 @@
             this.timerMakeEnemy = new System.Windows.Forms.Timer(this.components);
             this.pbEnemy2 = new System.Windows.Forms.PictureBox();
             this.pbEnemy3 = new System.Windows.Forms.PictureBox();
+            this.countTime = new System.Windows.Forms.Timer(this.components);
+            this.timerCountLab = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemy1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemy2)).BeginInit();
@@ -44,10 +46,10 @@
             // pbPlayer
             // 
             this.pbPlayer.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pbPlayer.Location = new System.Drawing.Point(25, 90);
-            this.pbPlayer.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbPlayer.Location = new System.Drawing.Point(33, 111);
+            this.pbPlayer.Margin = new System.Windows.Forms.Padding(1);
             this.pbPlayer.Name = "pbPlayer";
-            this.pbPlayer.Size = new System.Drawing.Size(19, 21);
+            this.pbPlayer.Size = new System.Drawing.Size(25, 26);
             this.pbPlayer.TabIndex = 0;
             this.pbPlayer.TabStop = false;
             // 
@@ -60,10 +62,10 @@
             // pbEnemy1
             // 
             this.pbEnemy1.BackColor = System.Drawing.Color.Red;
-            this.pbEnemy1.Location = new System.Drawing.Point(356, 0);
-            this.pbEnemy1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbEnemy1.Location = new System.Drawing.Point(475, 0);
+            this.pbEnemy1.Margin = new System.Windows.Forms.Padding(1);
             this.pbEnemy1.Name = "pbEnemy1";
-            this.pbEnemy1.Size = new System.Drawing.Size(38, 84);
+            this.pbEnemy1.Size = new System.Drawing.Size(51, 103);
             this.pbEnemy1.TabIndex = 1;
             this.pbEnemy1.TabStop = false;
             // 
@@ -75,34 +77,50 @@
             // pbEnemy2
             // 
             this.pbEnemy2.BackColor = System.Drawing.Color.Red;
-            this.pbEnemy2.Location = new System.Drawing.Point(356, 84);
-            this.pbEnemy2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbEnemy2.Location = new System.Drawing.Point(475, 103);
+            this.pbEnemy2.Margin = new System.Windows.Forms.Padding(1);
             this.pbEnemy2.Name = "pbEnemy2";
-            this.pbEnemy2.Size = new System.Drawing.Size(38, 84);
+            this.pbEnemy2.Size = new System.Drawing.Size(51, 103);
             this.pbEnemy2.TabIndex = 2;
             this.pbEnemy2.TabStop = false;
             // 
             // pbEnemy3
             // 
             this.pbEnemy3.BackColor = System.Drawing.Color.Red;
-            this.pbEnemy3.Location = new System.Drawing.Point(356, 168);
-            this.pbEnemy3.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbEnemy3.Location = new System.Drawing.Point(475, 207);
+            this.pbEnemy3.Margin = new System.Windows.Forms.Padding(1);
             this.pbEnemy3.Name = "pbEnemy3";
-            this.pbEnemy3.Size = new System.Drawing.Size(38, 84);
+            this.pbEnemy3.Size = new System.Drawing.Size(51, 103);
             this.pbEnemy3.TabIndex = 3;
             this.pbEnemy3.TabStop = false;
             // 
+            // countTime
+            // 
+            this.countTime.Enabled = true;
+            this.countTime.Interval = 1000;
+            this.countTime.Tick += new System.EventHandler(this.countTime_Tick);
+            // 
+            // timerCountLab
+            // 
+            this.timerCountLab.AutoSize = true;
+            this.timerCountLab.Location = new System.Drawing.Point(617, 9);
+            this.timerCountLab.Name = "timerCountLab";
+            this.timerCountLab.Size = new System.Drawing.Size(88, 17);
+            this.timerCountLab.TabIndex = 4;
+            this.timerCountLab.Text = "TimerCounts";
+            // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 299);
+            this.ClientSize = new System.Drawing.Size(733, 368);
+            this.Controls.Add(this.timerCountLab);
             this.Controls.Add(this.pbEnemy3);
             this.Controls.Add(this.pbEnemy2);
             this.Controls.Add(this.pbEnemy1);
             this.Controls.Add(this.pbPlayer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Game";
@@ -113,6 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemy2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemy3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,5 +143,7 @@
         private System.Windows.Forms.Timer timerMakeEnemy;
         private System.Windows.Forms.PictureBox pbEnemy2;
         private System.Windows.Forms.PictureBox pbEnemy3;
+        private System.Windows.Forms.Timer countTime;
+        private System.Windows.Forms.Label timerCountLab;
     }
 }
