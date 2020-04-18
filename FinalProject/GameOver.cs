@@ -49,8 +49,8 @@ namespace FinalProject
             // Create instance of new game and bring it up.
             Game game = new Game()
             {
-                Width = 1500,
-                Height = 700
+                Width = 700,
+                Height = 400
             };
             game.ShowDialog();
 
