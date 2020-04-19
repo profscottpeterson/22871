@@ -32,6 +32,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.lblGameOver = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
+            this.setTimeLoseTxtBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnNewGame
@@ -77,11 +78,20 @@
             this.time.TabIndex = 3;
             this.time.Text = "Time:";
             // 
+            // setTimeLoseTxtBox
+            // 
+            this.setTimeLoseTxtBox.Location = new System.Drawing.Point(106, 135);
+            this.setTimeLoseTxtBox.Name = "setTimeLoseTxtBox";
+            this.setTimeLoseTxtBox.ReadOnly = true;
+            this.setTimeLoseTxtBox.Size = new System.Drawing.Size(228, 22);
+            this.setTimeLoseTxtBox.TabIndex = 4;
+            // 
             // GameOver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 233);
+            this.Controls.Add(this.setTimeLoseTxtBox);
             this.Controls.Add(this.time);
             this.Controls.Add(this.lblGameOver);
             this.Controls.Add(this.btnExit);
@@ -103,5 +113,6 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblGameOver;
         private System.Windows.Forms.Label time;
+        private System.Windows.Forms.TextBox setTimeLoseTxtBox;
     }
 }

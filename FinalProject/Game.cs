@@ -215,8 +215,7 @@ namespace FinalProject
 
                 //Edited by Jeng Leng
                 // Add the time total into the game over title.
-                end.Text = end.Text + ", " +
-                            countTimeHours + " hours: " +
+                end.textBoxTimeSet = countTimeHours + " hours: " +
                             countTimeMinutes + " minutes: " +
                             countTimeSeconds + " seconds";
 
@@ -254,8 +253,7 @@ namespace FinalProject
 
                 //Edited by Jeng Leng
                 // Add the time total into the game over title.
-                victory.Text = victory.Text + ", " +
-                            countTimeHours + " hours: " +
+                victory.textBoxTimeSet = countTimeHours + " hours: " +
                             countTimeMinutes + " minutes: " +
                             countTimeSeconds + " seconds";
 

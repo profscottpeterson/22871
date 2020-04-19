@@ -32,6 +32,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.lblWin = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
+            this.setTimeWinTxtBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnNewGame
@@ -70,17 +71,26 @@
             // time
             // 
             this.time.AutoSize = true;
-            this.time.Location = new System.Drawing.Point(185, 124);
+            this.time.Location = new System.Drawing.Point(162, 123);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(43, 17);
             this.time.TabIndex = 5;
             this.time.Text = "Time:";
+            // 
+            // setTimeWinTxtBox
+            // 
+            this.setTimeWinTxtBox.Location = new System.Drawing.Point(211, 123);
+            this.setTimeWinTxtBox.Name = "setTimeWinTxtBox";
+            this.setTimeWinTxtBox.ReadOnly = true;
+            this.setTimeWinTxtBox.Size = new System.Drawing.Size(228, 22);
+            this.setTimeWinTxtBox.TabIndex = 6;
             // 
             // VictoryScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 265);
+            this.Controls.Add(this.setTimeWinTxtBox);
             this.Controls.Add(this.time);
             this.Controls.Add(this.lblWin);
             this.Controls.Add(this.btnExit);
@@ -102,5 +112,6 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblWin;
         private System.Windows.Forms.Label time;
+        private System.Windows.Forms.TextBox setTimeWinTxtBox;
     }
 }
