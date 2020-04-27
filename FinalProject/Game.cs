@@ -31,6 +31,13 @@ namespace FinalProject
         // Array of enemies
         PictureBox[] enemies = new PictureBox[3];
 
+        //Edited by: Jeng Leng
+        // Variable for count, seconds, minutes, and hours.
+        private int count;
+        private int countTimeSeconds = 0;
+        private int countTimeMinutes = 0;
+        private int countTimeHours = 0;
+
         public Game()
         {
             InitializeComponent();
@@ -180,8 +187,8 @@ namespace FinalProject
 
         ///<summary>
         /// Created by: Brandon Biles
-        /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
+        /// Last Edited by: Jeng Leng
+        /// Last Edit date: 4/12/2020 
         /// Description: Method to end the game. Is called when player is hit by enemy.
         /// </summary>
         private void EndGame(Boolean win)
@@ -192,11 +199,25 @@ namespace FinalProject
                 // Stop timer
                 timerMoveEnemy.Stop();
 
+                //Edited by: Jeng Leng
+                // Stop counting time
+                countTime.Stop();
+
                 // Hide game.
                 this.Hide();
 
                 // New GameOver window.
                 GameOver end = new GameOver();
+
+                //Edited by: Jeng Leng
+                // Using the timerFormat method
+                timerFormat(count);
+
+                //Edited by Jeng Leng
+                // Add the time total into the game over title.
+                end.textBoxTimeSet = countTimeHours + " hours: " +
+                            countTimeMinutes + " minutes: " +
+                            countTimeSeconds + " seconds";
 
                 // Show end window.
                 end.ShowDialog();
@@ -211,6 +232,10 @@ namespace FinalProject
                 // Stop timer
                 timerMoveEnemy.Stop();
 
+                //Edited by: Jeng Leng
+                // Stop counting time
+                countTime.Stop();
+
                 // Hide current window
                 this.Hide();
 
@@ -219,7 +244,20 @@ namespace FinalProject
                 {
                     Width = 500,
                     Height = 500
+
                 };
+                
+                //Edited by: Jeng Leng
+                // Using the timerFormat method
+                timerFormat(count);
+
+                //Edited by Jeng Leng
+                // Add the time total into the game over title.
+                victory.textBoxTimeSet = countTimeHours + " hours: " +
+                            countTimeMinutes + " minutes: " +
+                            countTimeSeconds + " seconds";
+
+                // Show victory dialog.
                 victory.ShowDialog();
 
                 // Close current window.
@@ -231,6 +269,65 @@ namespace FinalProject
         {
             // Call makeEnemy method
             makeEnemy();
+        }
+
+        ///<summary>
+        /// Created by: Jeng Leng
+        /// Last Edited by: Jeng Leng
+        /// Last Edit date: 4/12/2020 
+        /// Description: Timer that keeps track of time and changes background for visual.
+        /// </summary>
+        private void countTime_Tick(object sender, EventArgs e)
+        {
+            // Increase the time count every second.
+            count++;
+
+            // Show the player how long the game lasted.
+            this.timerCountLab.Text = count.ToString();
+
+            // If the background color is white.
+            if (BackColor == Color.White)
+            {
+                // The background color is light gray.
+                BackColor = Color.LightGray;
+            }
+            else
+            {
+                // Otherwise, the background color is white.
+                BackColor = Color.White;
+            }
+        }
+
+        ///<summary>
+        /// Created by: Jeng Leng
+        /// Last Edited by: Jeng Leng
+        /// Last Edit date: 4/12/2020 
+        /// Description: Create a class method for the Timer class
+        /// </summary>
+        private void timerFormat(int seconds)
+        {
+            // Set the variable.
+            countTimeSeconds = seconds; // Setup the seconds portion
+
+            // While the timerCounts is more than 60, turn it into minutes.
+            while (countTimeSeconds > 60)
+            {
+                // Subtract the timer counts by 60.
+                countTimeSeconds = countTimeSeconds - 60;
+
+                // Add 1 to the minute count time.
+                countTimeMinutes++;
+
+                // While the countTimeMinutes is more than 60, turn it into hours.
+                while (countTimeMinutes > 60)
+                {
+                    // Subtract the minute count by 60.
+                    countTimeMinutes = countTimeMinutes - 60;
+
+                    // Add 1 to the hour count time.
+                    countTimeHours++;
+                }
+            }
         }
     }
 }
