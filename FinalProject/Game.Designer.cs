@@ -126,6 +126,7 @@
             this.Name = "Game";
             this.Text = "Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Game_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemy1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemy2)).EndInit();

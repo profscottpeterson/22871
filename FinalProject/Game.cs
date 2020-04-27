@@ -15,9 +15,13 @@ namespace FinalProject
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
+    using System.Windows.Input;
 
     public partial class Game : Form
-    {
+    { 
+        bool jumping;
+        int gravity = 7;
+        
         // Values of Players location
         private int xPlayerLoc;
         private int yPlayerLoc;
@@ -42,12 +46,11 @@ namespace FinalProject
         {
             InitializeComponent();
             CenterToParent();
-
+            jumping = false;
             // Set player location
             xPlayerLoc = 50;
             yPlayerLoc = 50;
             pbPlayer.Location = new Point(xPlayerLoc, yPlayerLoc);
-
             // Set enemies
             enemies[0] = pbEnemy1;
             enemies[1] = pbEnemy2;
@@ -56,30 +59,32 @@ namespace FinalProject
 
         ///<summary>
         /// Created by: Brandon Biles
-        /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
-        /// Description: When button press occurs move player.
+        /// Last Edited by: Travis Lambert
+        /// Last Edit date: 4/17/2020 
+        /// Description: When button press occurs move player, if the player is not pressing the button, gravity will cause them to fall.
         /// </summary>
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.Up)
             {
-                // If the down arrow is pressed move player down.
-                yPlayerLoc += 5;
-                pbPlayer.Location = new Point(xPlayerLoc, yPlayerLoc);
+                    jumping = true;
+                    gravity = -6;
             }
-            else if (e.KeyCode == Keys.Up)
+            
+        }
+        private void Game_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
             {
-                // If the up arrow is pressed move player up.
-                yPlayerLoc -= 5;
-                pbPlayer.Location = new Point(xPlayerLoc, yPlayerLoc);
+                jumping = false;
+                gravity = 7;
             }
         }
 
         ///<summary>
         /// Created by: Brandon Biles
-        /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
+        /// Last Edited by: Travis Lambert
+        /// Last Edit date: 4/17/2020 
         /// Description: Create new enemies after a certain amount of ticks.
         /// </summary>
         private void timerMoveEnemy_Tick(object sender, EventArgs e)
@@ -87,6 +92,8 @@ namespace FinalProject
             //If player is still alive and time is under 100
             if(time < 500 && gameContinues)
             {
+                //Make it so the player drops due to gravity.
+                pbPlayer.Top += gravity;
                 // Create enemy.
                 //makeEnemy();
                 
@@ -242,9 +249,8 @@ namespace FinalProject
                 // Create instance of new game and bring it up.
                 VictoryScreen victory = new VictoryScreen()
                 {
-                    Width = 500,
-                    Height = 500
-
+                    Width = 700,
+                    Height = 400
                 };
                 
                 //Edited by: Jeng Leng
