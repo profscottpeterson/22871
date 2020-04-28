@@ -28,44 +28,78 @@ namespace FinalProject
         // Bool for Player still alive
         private bool gameContinues = true;
 
-        // Array of enemies
-        PictureBox[] enemies = new PictureBox[3];
+        // List of enemies
+        List<Enemy> enemies = new List<Enemy>();
+
+        // Value to control speed setting of player
+        bool spacePress = false;
+
+        //Edited by: Jeng Leng
+        // Variable for count, seconds, minutes, and hours.
+        private int count;
+        private int countTimeSeconds = 0;
+        private int countTimeMinutes = 0;
+        private int countTimeHours = 0;
+
+        // booleam for player jump.
+        bool jumping;
+        int gravity = 7;
 
         public Game()
         {
             InitializeComponent();
             CenterToParent();
 
+            // Set player jumping to false
+            jumping = false;
+
             // Set player location
             xPlayerLoc = 50;
             yPlayerLoc = 50;
             pbPlayer.Location = new Point(xPlayerLoc, yPlayerLoc);
-
-            // Set enemies
-            enemies[0] = pbEnemy1;
-            enemies[1] = pbEnemy2;
-            enemies[2] = pbEnemy3;
         }
 
         ///<summary>
         /// Created by: Brandon Biles
         /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
+        /// Last Edit date: 4/22/2020 
         /// Description: When button press occurs move player.
         /// </summary>
         private void Game_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Down)
+        {           
+            if (e.KeyCode == Keys.Up && gameContinues)
             {
-                // If the down arrow is pressed move player down.
-                yPlayerLoc += 5;
-                pbPlayer.Location = new Point(xPlayerLoc, yPlayerLoc);
-            }
-            else if (e.KeyCode == Keys.Up)
+
+                // if space euqals false move player by 6 each time.
+                if (spacePress == false)
+                {
+                    // If the up arrow is pressed move player up.
+                    jumping = true;
+                    gravity = -6;
+                }
+
+                // else when space is true move player by 12 each time.
+                else
+                {
+                    // If the up arrow is pressed move player up.
+                    jumping = true;
+                    gravity = -12;                    
+                }
+            }                    
+
+            // Speed up or slowdown player speed
+            else if(e.KeyCode == Keys.Space && gameContinues)
             {
-                // If the up arrow is pressed move player up.
-                yPlayerLoc -= 5;
-                pbPlayer.Location = new Point(xPlayerLoc, yPlayerLoc);
+                // if space is false, change to true
+                if(spacePress == false)
+                {
+                    spacePress = true;
+                }
+                else
+                {
+                    // else if space was true, change to false
+                    spacePress = false;
+                }
             }
         }
 
@@ -79,109 +113,96 @@ namespace FinalProject
         {
             //If player is still alive and time is under 100
             if(time < 500 && gameContinues)
-            {
-                // Create enemy.
-                //makeEnemy();
-                
+            {                
                 // Add more to time. When time is up player wins.
                 time += 1;
 
                 // TODO delete after makeEnemy works correctly  
-                for(int i = 0; i < enemies.Length; i++)
+                for(int i = 0; i < enemies.Count; i++)
                 {
                     // If the enemy has reached the end of the left side of the window
-                    if(enemies[i].Left < 0)
+                    if(enemies[i].show.Left < 0)
                     {
                         // randNumb equals new random number between 1 and 300
                         Random rand = new Random();
                         int randNumb = rand.Next(1, 300);
 
-                        // set enemies back up at new location
-                        enemies[i].Left = 400;
-                        enemies[i].Top = randNumb;
-
-                        // if enemy locations intersect seperate them.
-                        if (pbEnemy1.Bounds.IntersectsWith(pbEnemy2.Bounds))
-                        {
-                            pbEnemy2.Top = randNumb + 200;
-                        }
-                        if (pbEnemy1.Bounds.IntersectsWith(pbEnemy3.Bounds))
-                        {
-                            pbEnemy3.Top = randNumb + 200;
-                        }
-                        if (pbEnemy2.Bounds.IntersectsWith(pbEnemy3.Bounds))
-                        {
-                            pbEnemy3.Top = randNumb + 200;
-                        }
+                        //If Position equals 0 then delete enemy and reset Position
+                        enemies[i].show.Visible = false;
+                        enemies.RemoveAt(i);                    
+                        
                     }
 
                     // if enemy hitbox intersects with the player hitbox end game.
-                    if (enemies[i].Bounds.IntersectsWith(pbPlayer.Bounds))
+                    if (enemies[i].show.Bounds.IntersectsWith(pbPlayer.Bounds))
+                    {
+                        EndGame(false);
+                    }
+                    
+                    // if player hits the ground or the top, end the game
+                    if (pbGround.Bounds.IntersectsWith(pbPlayer.Bounds) || pbRoof.Bounds.IntersectsWith(pbPlayer.Bounds))
                     {
                         EndGame(false);
                     }
 
                     //Change enemy location
-                    enemies[i].Left -= 5;
+                    enemies[i].show.Left -= 5;
                 }                
             }
             else if(time >= 100 && gameContinues)
             {
                 // end game player wins.
                 EndGame(true);
-            }
-            
+            }            
         }
 
         ///<summary>
         /// Created by: Brandon Biles
         /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
+        /// Last Edit date: 4/27/2020 
         /// Description: Create a new enemy.
         /// </summary>
         private void makeEnemy()
         {
+            
             // TODO: Currently method is not working. Any picturebox created in method does not show up on game form.
-            int position = 500;
+            //int position = 500;
+            Random rand = new Random();
 
-            // Make instance of enemy.
-            PictureBox enemy = new PictureBox();
+            // TODO: Add image to enemy picturebox 
+            // Create new enemy.
+            Enemy enemy = new Enemy();
+
+            // Set enemy values. X_axis is set within size of window (0 - 400) and Y_axis set to size 700.
+            enemy.X_axis = rand.Next(0, 350);
+            enemy.Y_axis = 700;
+            enemy.Width = rand.Next(25,50);
+            enemy.Length = rand.Next(50, 100);
 
             // Make enemy size.
-            //enemy.Size = new Size(100, 200);
+            enemy.show.Size = new Size(enemy.Width, enemy.Length);
 
             // Make enemy color.
-            enemy.BackColor = Color.Red;
+            enemy.show.BackColor = Color.Red;
 
             // set size and location.
-            enemy.SetBounds(100, 100, 100, 200);
+            enemy.show.Left = enemy.Y_axis;
+            enemy.show.Top = enemy.X_axis;
 
             // Move enemy.
-            enemy.Visible = true;            
+            enemy.show.Visible = true;
 
-            //enemy.Location = new Point(position, position);
-            for (int i = 0; i < position; position -= 5)
-            {
-                enemy.Location = new Point(position, 500);
+            // adds enemy to screen
+            Controls.Add(enemy.show);
 
-                if (enemy.Bounds.IntersectsWith(pbPlayer.Bounds)){
-                    // If the enemy hits the player end the game.
-                    EndGame(false);
-                }
-            }
-            
-            if(position == 0)
-            {
-                //If Position equals 0 then delete enemy and reset Position
-                enemy.Dispose();
-                position = 500;
-            }
+            // Add enemy to list.
+            enemies.Add(enemy);               
         }
 
         ///<summary>
         /// Created by: Brandon Biles
-        /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
+        /// Last Edited by: Jeng Leng
+        /// Last Edit date: 4/12/2020 
         /// Description: Method to end the game. Is called when player is hit by enemy.
         /// </summary>
         private void EndGame(Boolean win)
@@ -189,14 +210,37 @@ namespace FinalProject
             // If player does not win the game
             if (win == false)
             {
-                // Stop timer
+                // Change gamecontinues to false
+                gameContinues = false;
+
+                // Stop all timers
                 timerMoveEnemy.Stop();
+                timerMakeEnemy.Stop();
+                timerPlayerFalls.Stop();
+
+                //Edited by: Jeng Leng
+                // Stop counting time
+                countTime.Stop();
 
                 // Hide game.
                 this.Hide();
 
                 // New GameOver window.
-                GameOver end = new GameOver();
+                GameOver end = new GameOver()
+                {
+                    Width = 700,
+                    Height = 400
+                };
+
+                //Edited by: Jeng Leng
+                // Using the timerFormat method
+                timerFormat(count);
+
+                //Edited by Jeng Leng
+                // Add the time total into the game over title.
+                end.textBoxTimeSet = countTimeHours + " hours: " +
+                            countTimeMinutes + " minutes: " +
+                            countTimeSeconds + " seconds";
 
                 // Show end window.
                 end.ShowDialog();
@@ -208,8 +252,17 @@ namespace FinalProject
             // If player wins the game 
             else if(win == true)
             {
-                // Stop timer
+                // Change gamecontinues to false
+                gameContinues = false;
+
+                // Stop all timers
                 timerMoveEnemy.Stop();
+                timerMakeEnemy.Stop();
+                timerPlayerFalls.Stop();
+
+                //Edited by: Jeng Leng
+                // Stop counting time
+                countTime.Stop();
 
                 // Hide current window
                 this.Hide();
@@ -217,9 +270,22 @@ namespace FinalProject
                 // Create instance of new game and bring it up.
                 VictoryScreen victory = new VictoryScreen()
                 {
-                    Width = 500,
-                    Height = 500
+                    Width = 700,
+                    Height = 400
+
                 };
+                
+                //Edited by: Jeng Leng
+                // Using the timerFormat method
+                timerFormat(count);
+
+                //Edited by Jeng Leng
+                // Add the time total into the game over title.
+                victory.textBoxTimeSet = countTimeHours + " hours: " +
+                            countTimeMinutes + " minutes: " +
+                            countTimeSeconds + " seconds";
+
+                // Show victory dialog.
                 victory.ShowDialog();
 
                 // Close current window.
@@ -231,6 +297,101 @@ namespace FinalProject
         {
             // Call makeEnemy method
             makeEnemy();
+        }
+
+        ///<summary>
+        /// Created by: Jeng Leng
+        /// Last Edited by: Jeng Leng
+        /// Last Edit date: 4/12/2020 
+        /// Description: Timer that keeps track of time and changes background for visual.
+        /// </summary>
+        private void countTime_Tick(object sender, EventArgs e)
+        {
+            // Increase the time count every second.
+            count++;
+
+            // Show the player how long the game lasted.
+            this.timerCountLab.Text = count.ToString();
+
+            // If the background color is white.
+            if (BackColor == Color.White)
+            {
+                // The background color is light gray.
+                BackColor = Color.LightGray;
+            }
+            else
+            {
+                // Otherwise, the background color is white.
+                BackColor = Color.White;
+            }
+        }
+
+        ///<summary>
+        /// Created by: Jeng Leng
+        /// Last Edited by: Jeng Leng
+        /// Last Edit date: 4/12/2020 
+        /// Description: Create a class method for the Timer class
+        /// </summary>
+        private void timerFormat(int seconds)
+        {
+            // Set the variable.
+            countTimeSeconds = seconds; // Setup the seconds portion
+
+            // While the timerCounts is more than 60, turn it into minutes.
+            while (countTimeSeconds > 60)
+            {
+                // Subtract the timer counts by 60.
+                countTimeSeconds = countTimeSeconds - 60;
+
+                // Add 1 to the minute count time.
+                countTimeMinutes++;
+
+                // While the countTimeMinutes is more than 60, turn it into hours.
+                while (countTimeMinutes > 60)
+                {
+                    // Subtract the minute count by 60.
+                    countTimeMinutes = countTimeMinutes - 60;
+
+                    // Add 1 to the hour count time.
+                    countTimeHours++;
+                }
+            }
+        }
+
+        ///<summary>
+        /// Created by: Brandon Biles
+        /// Last Edited by: Brandon Biles
+        /// Last Edit date: 4/27/2020 
+        /// Description: Move the player down with each tick of the timer.
+        /// </summary>
+        private void timerPlayerFalls_Tick(object sender, EventArgs e)
+        {
+            // if the game continues move player.
+            if (gameContinues)
+            {
+                // While game is going move player.
+                pbPlayer.Top += gravity;
+            }
+            else
+            {
+                // end timer is game has ended
+                timerPlayerFalls.Enabled = false;
+            }
+        }
+
+        ///<summary>
+        /// Created by: Travis
+        /// Last Edited by: Brandon Biles
+        /// Last Edit date: 4/27/2020 
+        /// Description: When user let go of key player begins failing again.
+        /// </summary>
+        private void Game_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Up)
+            {
+                jumping = false;
+                gravity = 6;
+            }
         }
     }
 }

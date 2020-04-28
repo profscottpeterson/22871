@@ -1,6 +1,6 @@
 ﻿namespace FinalProject
 {
-    partial class GameOver
+    partial class VictoryScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -30,17 +30,17 @@
         {
             this.btnNewGame = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lblGameOver = new System.Windows.Forms.Label();
+            this.lblWin = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
-            this.setTimeLoseTxtBox = new System.Windows.Forms.TextBox();
+            this.setTimeWinTxtBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(60, 169);
+            this.btnNewGame.Location = new System.Drawing.Point(36, 177);
             this.btnNewGame.Margin = new System.Windows.Forms.Padding(1);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(120, 49);
+            this.btnNewGame.Size = new System.Drawing.Size(99, 42);
             this.btnNewGame.TabIndex = 0;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = true;
@@ -48,60 +48,59 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(211, 169);
+            this.btnExit.Location = new System.Drawing.Point(340, 177);
             this.btnExit.Margin = new System.Windows.Forms.Padding(1);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(123, 49);
+            this.btnExit.Size = new System.Drawing.Size(99, 42);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // lblGameOver
+            // lblWin
             // 
-            this.lblGameOver.AutoSize = true;
-            this.lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameOver.ForeColor = System.Drawing.Color.Red;
-            this.lblGameOver.Location = new System.Drawing.Point(51, 68);
-            this.lblGameOver.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblGameOver.Name = "lblGameOver";
-            this.lblGameOver.Size = new System.Drawing.Size(284, 58);
-            this.lblGameOver.TabIndex = 2;
-            this.lblGameOver.Text = "Game Over";
+            this.lblWin.AutoSize = true;
+            this.lblWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWin.Location = new System.Drawing.Point(32, 64);
+            this.lblWin.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblWin.Name = "lblWin";
+            this.lblWin.Size = new System.Drawing.Size(415, 39);
+            this.lblWin.TabIndex = 2;
+            this.lblWin.Text = "Congratulations, you Win!!";
             // 
             // time
             // 
             this.time.AutoSize = true;
-            this.time.Location = new System.Drawing.Point(57, 138);
+            this.time.Location = new System.Drawing.Point(162, 123);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(43, 17);
-            this.time.TabIndex = 3;
+            this.time.TabIndex = 5;
             this.time.Text = "Time:";
             // 
-            // setTimeLoseTxtBox
+            // setTimeWinTxtBox
             // 
-            this.setTimeLoseTxtBox.Location = new System.Drawing.Point(106, 135);
-            this.setTimeLoseTxtBox.Name = "setTimeLoseTxtBox";
-            this.setTimeLoseTxtBox.ReadOnly = true;
-            this.setTimeLoseTxtBox.Size = new System.Drawing.Size(228, 22);
-            this.setTimeLoseTxtBox.TabIndex = 4;
+            this.setTimeWinTxtBox.Location = new System.Drawing.Point(211, 123);
+            this.setTimeWinTxtBox.Name = "setTimeWinTxtBox";
+            this.setTimeWinTxtBox.ReadOnly = true;
+            this.setTimeWinTxtBox.Size = new System.Drawing.Size(228, 22);
+            this.setTimeWinTxtBox.TabIndex = 6;
             // 
-            // GameOver
+            // VictoryScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 233);
-            this.Controls.Add(this.setTimeLoseTxtBox);
+            this.ClientSize = new System.Drawing.Size(528, 265);
+            this.Controls.Add(this.setTimeWinTxtBox);
             this.Controls.Add(this.time);
-            this.Controls.Add(this.lblGameOver);
+            this.Controls.Add(this.lblWin);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnNewGame);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "GameOver";
-            this.Text = "Game Over";
+            this.Name = "VictoryScreen";
+            this.Text = "VictoryScreen";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,8 +110,8 @@
 
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label lblGameOver;
+        private System.Windows.Forms.Label lblWin;
         private System.Windows.Forms.Label time;
-        private System.Windows.Forms.TextBox setTimeLoseTxtBox;
+        private System.Windows.Forms.TextBox setTimeWinTxtBox;
     }
 }

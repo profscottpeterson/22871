@@ -121,6 +121,12 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="timerMakeEnemy.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>340, 23</value>
+    <value>236, 21</value>
+  </metadata>
+  <metadata name="countTime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>464, 25</value>
+  </metadata>
+  <metadata name="timerPlayerFalls.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 90</value>
   </metadata>
 </root>
