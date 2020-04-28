@@ -23,6 +23,14 @@ namespace FinalProject
             CenterToParent();
         }
 
+        //Edited by: Jeng Leng
+        // Variable for calling the game form
+        public string textBoxTimeSet
+        {
+            get { return setTimeWinTxtBox.Text; }
+            set { setTimeWinTxtBox.Text = value; }
+        }
+
         ///<summary>
         /// Created by: Brandon Biles
         /// Last Edited by: Brandon Biles
