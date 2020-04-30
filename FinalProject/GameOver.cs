@@ -3,6 +3,7 @@
 //     Copyright (c) Brandon Biles, Jeng Leng Lee, Nick Schuchard, Travis Lambert. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
+
 namespace FinalProject
 {
     using System;

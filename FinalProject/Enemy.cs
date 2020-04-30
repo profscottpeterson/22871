@@ -1,59 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Enemy.cs" company="Brandon Biles, Jeng Leng Lee, Nick Schuchard, Travis Lambert.">
+//     Copyright (c) Brandon Biles, Jeng Leng Lee, Nick Schuchard, Travis Lambert. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace FinalProject
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+
     class Enemy
     {
-        ///<summary>
-        /// Created by: Brandon Biles
-        /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
-        /// Description: Create a new enemy.
-        /// </summary>
-        private void makeEnemy()
+        // Length of enemy instance.
+        private int length;
+
+        // Width of enemy instance.
+        private int width;
+
+        // Horizontal location of enemy.
+        private int x_axis;
+
+        // Vertical Location of enemy.
+        private int y_axis;
+
+        // Image of enemy.
+        public PictureBox show = new PictureBox();
+        
+        // set size and location.                    
+
+        public int Length
         {
-            // TODO: Currently method is not working. Any picturebox created in method does not show up on game form.
-            int position = 500;
+            get { return length; }
+            set { length = value; }
+        }
+        public int Width
+        {
+            get { return width; }
+            set { width = value; }
+        }
 
-            // Make instance of enemy.
-            PictureBox enemy = new PictureBox();
+        public int X_axis
+        {
+            get { return x_axis; }
+            set { x_axis = value; }
+        }
 
-            // Make enemy size.
-            //enemy.Size = new Size(100, 200);
+        public int Y_axis
+        {
+            get { return y_axis; }
+            set { y_axis = value; }
+        }
 
-            // Make enemy color.
-            enemy.BackColor = Color.Red;
-
-            // set size and location.
-            enemy.SetBounds(100, 100, 100, 200);
-
-            // Move enemy.
-            enemy.Visible = true;
-
-            //enemy.Location = new Point(position, position);
-            for (int i = 0; i < position; position -= 5)
-            {
-                enemy.Location = new Point(position, 500);
-
-               // if (enemy.Bounds.IntersectsWith(pbPlayer.Bounds))
-              //  {
-                    // If the enemy hits the player end the game.
-              //      EndGame(false);
-              //  }
-            }
-
-            if (position == 0)
-            {
-                //If Position equals 0 then delete enemy and reset Position
-                enemy.Dispose();
-                position = 500;
-            }
+        private PictureBox Show
+        {
+            get { return show; }
+            set { show = value; }
         }
     }
 }
