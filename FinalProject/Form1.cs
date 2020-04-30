@@ -79,26 +79,5 @@ namespace FinalProject
                 BackColor = Color.White;
             }
         }
-
-        ///<summary>
-        /// Created by: Jeng Leng
-        /// Last Edited by: Jeng Leng
-        /// Last Edit date: 4/12/2020 
-        /// Description: The screen goes white and light gray every second.
-        /// </summary>
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            // If the background color is white.
-            if (BackColor == Color.White)
-            {
-                // The background color is light gray.
-                BackColor = Color.LightGray;
-            }
-            else
-            {
-                // Otherwise, the background color is white.
-                BackColor = Color.White;
-            }
-        }
     }
 }
