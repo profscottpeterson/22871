@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             System.Windows.Forms.Label floorlbl;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.btnExit = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -50,6 +50,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSky)).BeginInit();
             this.SuspendLayout();
+            // 
+            // floorlbl
+            // 
+            floorlbl.AutoSize = true;
+            floorlbl.BackColor = System.Drawing.Color.Transparent;
+            floorlbl.Cursor = System.Windows.Forms.Cursors.Default;
+            floorlbl.Location = new System.Drawing.Point(432, 236);
+            floorlbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            floorlbl.Name = "floorlbl";
+            floorlbl.Size = new System.Drawing.Size(119, 13);
+            floorlbl.TabIndex = 8;
+            floorlbl.Text = "Avoid touching the floor";
+            floorlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnExit
             // 
@@ -103,12 +116,12 @@
             // pbEnemy1
             // 
             this.pbEnemy1.BackColor = System.Drawing.Color.Transparent;
-            this.pbEnemy1.Image = ((System.Drawing.Image)(resources.GetObject("pbEnemy1.Image")));
+            this.pbEnemy1.Image = global::FinalProject.Properties.Resources.pipe_top;
             this.pbEnemy1.Location = new System.Drawing.Point(468, 83);
             this.pbEnemy1.Margin = new System.Windows.Forms.Padding(1);
             this.pbEnemy1.Name = "pbEnemy1";
             this.pbEnemy1.Size = new System.Drawing.Size(38, 84);
-            this.pbEnemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEnemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEnemy1.TabIndex = 4;
             this.pbEnemy1.TabStop = false;
             // 
@@ -152,19 +165,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // floorlbl
-            // 
-            floorlbl.AutoSize = true;
-            floorlbl.BackColor = System.Drawing.Color.Transparent;
-            floorlbl.Cursor = System.Windows.Forms.Cursors.Default;
-            floorlbl.Location = new System.Drawing.Point(432, 236);
-            floorlbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            floorlbl.Name = "floorlbl";
-            floorlbl.Size = new System.Drawing.Size(119, 13);
-            floorlbl.TabIndex = 8;
-            floorlbl.Text = "Avoid touching the floor";
-            floorlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 

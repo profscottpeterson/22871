@@ -177,7 +177,6 @@ namespace FinalProject
                 // Set enemy values. X_axis is set within size of window (0 - 400) and Y_axis set to size 700.
                 X_axis = rand.Next(0, 350),
                 Y_axis = 700,
-                SetZIndex = 0,
                 Width = rand.Next(25, 50),
                 Length = rand.Next(50, 100),
         };
@@ -188,19 +187,19 @@ namespace FinalProject
 
 
             // Make enemy color.
-            enemy.show.BackColor = Color.Red;
-
+            enemy.show.Image = FinalProject.Properties.Resources.pipe_bottom;
+            enemy.show.SizeMode = PictureBoxSizeMode.StretchImage;
+            
             // Set's the size and location.
             enemy.show.Left = enemy.Y_axis;
             enemy.show.Top = enemy.X_axis;
 
             // Move enemy.
             enemy.show.Visible = true;
-            enemy.show.TabIndex = 3;
 
             // adds enemy to screen
             Controls.Add(enemy.show);
-
+            enemy.show.BringToFront();
             // Add enemy to list.
             enemies.Add(enemy);               
         }
