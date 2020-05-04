@@ -157,7 +157,7 @@ namespace FinalProject
         }
 
         ///<summary>
-        /// Created by: Brandon Biles
+        /// Created by: Nick Schuchard
         /// Last Edited by: Brandon Biles
         /// Last Edit date: 4/27/2020 
         /// Description: Create a new enemy.
@@ -171,26 +171,32 @@ namespace FinalProject
 
             // TODO: Add image to enemy picturebox 
             // Create new enemy.
-            Enemy enemy = new Enemy();
+            Enemy enemy = new Enemy
+            {
 
-            // Set enemy values. X_axis is set within size of window (0 - 400) and Y_axis set to size 700.
-            enemy.X_axis = rand.Next(0, 350);
-            enemy.Y_axis = 700;
-            enemy.Width = rand.Next(25,50);
-            enemy.Length = rand.Next(50, 100);
-
+                // Set enemy values. X_axis is set within size of window (0 - 400) and Y_axis set to size 700.
+                X_axis = rand.Next(0, 350),
+                Y_axis = 700,
+                SetZIndex = 0,
+                Width = rand.Next(25, 50),
+                Length = rand.Next(50, 100),
+        };
+            
             // Make enemy size.
             enemy.show.Size = new Size(enemy.Width, enemy.Length);
+
+
 
             // Make enemy color.
             enemy.show.BackColor = Color.Red;
 
-            // set size and location.
+            // Set's the size and location.
             enemy.show.Left = enemy.Y_axis;
             enemy.show.Top = enemy.X_axis;
 
             // Move enemy.
             enemy.show.Visible = true;
+            enemy.show.TabIndex = 3;
 
             // adds enemy to screen
             Controls.Add(enemy.show);
@@ -301,9 +307,10 @@ namespace FinalProject
 
         ///<summary>
         /// Created by: Jeng Leng
-        /// Last Edited by: Jeng Leng
-        /// Last Edit date: 4/12/2020 
-        /// Description: Timer that keeps track of time and changes background for visual.
+        /// Last Edited by: Nick
+        /// Last Edit date: 5/3/2020 
+        /// Description: Timer that keeps track of time.
+        /// Removed Background gray/white toggle. - Nick
         /// </summary>
         private void countTime_Tick(object sender, EventArgs e)
         {
@@ -312,18 +319,6 @@ namespace FinalProject
 
             // Show the player how long the game lasted.
             this.timerCountLab.Text = count.ToString();
-
-            // If the background color is white.
-            if (BackColor == Color.White)
-            {
-                // The background color is light gray.
-                BackColor = Color.LightGray;
-            }
-            else
-            {
-                // Otherwise, the background color is white.
-                BackColor = Color.White;
-            }
         }
 
         ///<summary>
@@ -381,8 +376,8 @@ namespace FinalProject
 
         ///<summary>
         /// Created by: Travis
-        /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/27/2020 
+        /// Last Edited by: Nick
+        /// Last Edit date: 5/3/20 
         /// Description: When user let go of key player begins failing again.
         /// </summary>
         private void Game_KeyUp(object sender, KeyEventArgs e)
@@ -390,8 +385,9 @@ namespace FinalProject
             if(e.KeyCode == Keys.Up)
             {
                 jumping = false;
-                gravity = 6;
+                gravity = 10;
             }
+
         }
     }
 }
