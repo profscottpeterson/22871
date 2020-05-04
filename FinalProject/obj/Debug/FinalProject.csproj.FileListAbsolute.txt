@@ -50,3 +50,16 @@ C:\Users\Brandon\Documents\NWTC\2020 Spring Classes\Team Software Dev\22871-Jeng
 C:\Users\Brandon\Documents\NWTC\2020 Spring Classes\Team Software Dev\22871-Jeng-branch\22871-Jeng-branch\FinalProject\obj\Debug\FinalProject.csproj.CoreCompileInputs.cache
 C:\Users\Brandon\Documents\NWTC\2020 Spring Classes\Team Software Dev\22871-Jeng-branch\22871-Jeng-branch\FinalProject\obj\Debug\FinalProject.exe
 C:\Users\Brandon\Documents\NWTC\2020 Spring Classes\Team Software Dev\22871-Jeng-branch\22871-Jeng-branch\FinalProject\obj\Debug\FinalProject.pdb
+C:\Users\nhs\Desktop\22871\FinalProject\bin\Debug\FinalProject.exe.config
+C:\Users\nhs\Desktop\22871\FinalProject\bin\Debug\FinalProject.exe
+C:\Users\nhs\Desktop\22871\FinalProject\bin\Debug\FinalProject.pdb
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.csprojAssemblyReference.cache
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.FormMainMenu.resources
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.Game.resources
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.GameOver.resources
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.Properties.Resources.resources
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.VictoryScreen.resources
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.csproj.GenerateResource.cache
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.csproj.CoreCompileInputs.cache
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.exe
+C:\Users\nhs\Desktop\22871\FinalProject\obj\Debug\FinalProject.pdb
