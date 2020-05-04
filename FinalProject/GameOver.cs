@@ -66,5 +66,10 @@ namespace FinalProject
             // Close current window.
             this.Close();
         }
+
+        private void GameOver_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
