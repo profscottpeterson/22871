@@ -30,7 +30,7 @@ namespace FinalProject
 
         // Image of enemy.
         public PictureBox show = new PictureBox();
-        
+
         // set size and location.                    
 
         public int Length
@@ -61,5 +61,7 @@ namespace FinalProject
             get { return show; }
             set { show = value; }
         }
+
+        public int SetZIndex { get; internal set; }
     }
 }

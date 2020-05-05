@@ -157,12 +157,12 @@ namespace FinalProject
         }
 
         ///<summary>
-        /// Created by: Brandon Biles
+        /// Created by: Nick Schuchard
         /// Last Edited by: Brandon Biles
         /// Last Edit date: 4/27/2020 
         /// Description: Create a new enemy.
         /// </summary>
-        private void makeEnemy()
+        private void makeEnemy(bool topEnemy)
         {
             
             // TODO: Currently method is not working. Any picturebox created in method does not show up on game form.
@@ -170,33 +170,84 @@ namespace FinalProject
             Random rand = new Random();
 
             // TODO: Add image to enemy picturebox 
-            // Create new enemy.
-            Enemy enemy = new Enemy();
+            // when topEnemy is true create an enemy on the top of the screen
+            if (topEnemy == true)
+            {
+                Enemy enemy = new Enemy
+                {
 
-            // Set enemy values. X_axis is set within size of window (0 - 400) and Y_axis set to size 700.
-            enemy.X_axis = rand.Next(0, 350);
-            enemy.Y_axis = 700;
-            enemy.Width = rand.Next(25,50);
-            enemy.Length = rand.Next(50, 100);
+                    // Set enemy values. X_axis is set to either 0 for the top pipe and Y_axis set to size 700.                
+                    X_axis = 0,
+                    Y_axis = 700,
+                    Width = rand.Next(35, 50),
+                    Length = rand.Next(50, 150),
+                };
+                // Make enemy size.
+                enemy.show.Size = new Size(enemy.Width, enemy.Length);
 
-            // Make enemy size.
-            enemy.show.Size = new Size(enemy.Width, enemy.Length);
+                // Make enemy color.
+                enemy.show.Image = FinalProject.Properties.Resources.pipe_top;
+                enemy.show.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            // Make enemy color.
-            enemy.show.BackColor = Color.Red;
+                // Set's the size and location.
+                enemy.show.Anchor = AnchorStyles.Top;
+                enemy.show.Left = enemy.Y_axis;
+                enemy.show.Top = enemy.X_axis;
 
-            // set size and location.
-            enemy.show.Left = enemy.Y_axis;
-            enemy.show.Top = enemy.X_axis;
+                // Move enemy.
+                enemy.show.Visible = true;
 
-            // Move enemy.
-            enemy.show.Visible = true;
+                // adds enemy to screen
+                Controls.Add(enemy.show);
 
-            // adds enemy to screen
-            Controls.Add(enemy.show);
+                // Display enemy on top of pbSky 
+                enemy.show.BringToFront();
 
-            // Add enemy to list.
-            enemies.Add(enemy);               
+                // Add enemy to list.
+                enemies.Add(enemy);
+
+            }
+
+            // when topEnemy is false create an enemy on the bottom of the screen
+            else if (topEnemy == false)
+            {
+                Enemy enemy = new Enemy
+                {
+
+                    // Set enemy values. X_axis is set to 305 for the bottom pipe and Y_axis set to size 700.                    
+                    Width = rand.Next(35, 50),
+                    Length = rand.Next(175, 225),
+                    X_axis = rand.Next(190, 300),
+                    Y_axis = 700,
+                };
+
+                // Make enemy size.
+                enemy.show.Size = new Size(enemy.Width, enemy.Length);
+
+                enemy.show.BackgroundImageLayout = ImageLayout.Zoom;
+
+                // Make enemy color.
+                enemy.show.Image = FinalProject.Properties.Resources.pipe_bottom;
+                enemy.show.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                // Set's the size and location.
+                enemy.show.Anchor = AnchorStyles.Bottom;
+                enemy.show.Left = enemy.Y_axis;
+                enemy.show.Top = enemy.X_axis;
+
+                // Move enemy.
+                enemy.show.Visible = true;
+
+                // adds enemy to screen
+                Controls.Add(enemy.show);
+
+                // Display enemy on top of pbSky 
+                enemy.show.BringToFront();
+
+                // Add enemy to list.
+                enemies.Add(enemy);
+            }
+                         
         }
 
         ///<summary>
@@ -296,14 +347,16 @@ namespace FinalProject
         private void timerMakeEnemy_Tick(object sender, EventArgs e)
         {
             // Call makeEnemy method
-            makeEnemy();
+            makeEnemy(true);
+            makeEnemy(false);
         }
 
         ///<summary>
         /// Created by: Jeng Leng
-        /// Last Edited by: Jeng Leng
-        /// Last Edit date: 4/12/2020 
-        /// Description: Timer that keeps track of time and changes background for visual.
+        /// Last Edited by: Nick
+        /// Last Edit date: 5/3/2020 
+        /// Description: Timer that keeps track of time.
+        /// Removed Background gray/white toggle. - Nick
         /// </summary>
         private void countTime_Tick(object sender, EventArgs e)
         {
@@ -312,18 +365,6 @@ namespace FinalProject
 
             // Show the player how long the game lasted.
             this.timerCountLab.Text = count.ToString();
-
-            // If the background color is white.
-            if (BackColor == Color.White)
-            {
-                // The background color is light gray.
-                BackColor = Color.LightGray;
-            }
-            else
-            {
-                // Otherwise, the background color is white.
-                BackColor = Color.White;
-            }
         }
 
         ///<summary>
@@ -381,8 +422,8 @@ namespace FinalProject
 
         ///<summary>
         /// Created by: Travis
-        /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/27/2020 
+        /// Last Edited by: Nick
+        /// Last Edit date: 5/3/20 
         /// Description: When user let go of key player begins failing again.
         /// </summary>
         private void Game_KeyUp(object sender, KeyEventArgs e)
@@ -390,8 +431,9 @@ namespace FinalProject
             if(e.KeyCode == Keys.Up)
             {
                 jumping = false;
-                gravity = 6;
+                gravity = 10;
             }
+
         }
     }
 }

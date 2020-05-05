@@ -29,28 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
+            this.pbSky = new System.Windows.Forms.PictureBox();
             this.pbPlayer = new System.Windows.Forms.PictureBox();
             this.timerMoveEnemy = new System.Windows.Forms.Timer(this.components);
-            this.pbTree = new System.Windows.Forms.PictureBox();
             this.timerMakeEnemy = new System.Windows.Forms.Timer(this.components);
             this.pbRoof = new System.Windows.Forms.PictureBox();
             this.pbGround = new System.Windows.Forms.PictureBox();
             this.countTime = new System.Windows.Forms.Timer(this.components);
             this.timerCountLab = new System.Windows.Forms.Label();
             this.timerPlayerFalls = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoof)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGround)).BeginInit();
             this.SuspendLayout();
             // 
+            // pbSky
+            // 
+            this.pbSky.Image = ((System.Drawing.Image)(resources.GetObject("pbSky.Image")));
+            this.pbSky.Location = new System.Drawing.Point(0, 0);
+            this.pbSky.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pbSky.Name = "pbSky";
+            this.pbSky.Size = new System.Drawing.Size(1827, 727);
+            this.pbSky.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSky.TabIndex = 5;
+            this.pbSky.TabStop = false;
+            // 
             // pbPlayer
             // 
-            this.pbPlayer.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pbPlayer.Location = new System.Drawing.Point(66, 215);
-            this.pbPlayer.Margin = new System.Windows.Forms.Padding(2);
+            this.pbPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.pbPlayer.Image = ((System.Drawing.Image)(resources.GetObject("pbPlayer.Image")));
+            this.pbPlayer.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbPlayer.InitialImage")));
+            this.pbPlayer.Location = new System.Drawing.Point(64, 365);
+            this.pbPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbPlayer.Name = "pbPlayer";
-            this.pbPlayer.Size = new System.Drawing.Size(50, 50);
+            this.pbPlayer.Size = new System.Drawing.Size(69, 62);
+            this.pbPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPlayer.TabIndex = 0;
             this.pbPlayer.TabStop = false;
             // 
@@ -59,16 +74,6 @@
             this.timerMoveEnemy.Enabled = true;
             this.timerMoveEnemy.Interval = 50;
             this.timerMoveEnemy.Tick += new System.EventHandler(this.timerMoveEnemy_Tick);
-            // 
-            // pbTree
-            // 
-            this.pbTree.BackColor = System.Drawing.Color.Tan;
-            this.pbTree.Location = new System.Drawing.Point(815, 630);
-            this.pbTree.Margin = new System.Windows.Forms.Padding(2);
-            this.pbTree.Name = "pbTree";
-            this.pbTree.Size = new System.Drawing.Size(30, 111);
-            this.pbTree.TabIndex = 1;
-            this.pbTree.TabStop = false;
             // 
             // timerMakeEnemy
             // 
@@ -79,20 +84,23 @@
             // pbRoof
             // 
             this.pbRoof.BackColor = System.Drawing.Color.Black;
-            this.pbRoof.Location = new System.Drawing.Point(-4, -33);
-            this.pbRoof.Margin = new System.Windows.Forms.Padding(2);
+            this.pbRoof.Location = new System.Drawing.Point(0, -48);
+            this.pbRoof.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbRoof.Name = "pbRoof";
-            this.pbRoof.Size = new System.Drawing.Size(1887, 46);
-            this.pbRoof.TabIndex = 2;
+            this.pbRoof.Size = new System.Drawing.Size(1827, 48);
+            this.pbRoof.TabIndex = 4;
             this.pbRoof.TabStop = false;
             // 
             // pbGround
             // 
-            this.pbGround.BackColor = System.Drawing.Color.LightGreen;
-            this.pbGround.Location = new System.Drawing.Point(-4, 733);
-            this.pbGround.Margin = new System.Windows.Forms.Padding(2);
+            this.pbGround.BackColor = System.Drawing.Color.Transparent;
+            this.pbGround.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGround.BackgroundImage")));
+            this.pbGround.Image = ((System.Drawing.Image)(resources.GetObject("pbGround.Image")));
+            this.pbGround.Location = new System.Drawing.Point(0, 725);
+            this.pbGround.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbGround.Name = "pbGround";
-            this.pbGround.Size = new System.Drawing.Size(1887, 146);
+            this.pbGround.Size = new System.Drawing.Size(1827, 141);
+            this.pbGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGround.TabIndex = 3;
             this.pbGround.TabStop = false;
             // 
@@ -105,11 +113,11 @@
             // timerCountLab
             // 
             this.timerCountLab.AutoSize = true;
-            this.timerCountLab.Location = new System.Drawing.Point(1234, 17);
-            this.timerCountLab.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.timerCountLab.Location = new System.Drawing.Point(1293, 21);
+            this.timerCountLab.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.timerCountLab.Name = "timerCountLab";
             this.timerCountLab.Size = new System.Drawing.Size(177, 32);
-            this.timerCountLab.TabIndex = 4;
+            this.timerCountLab.TabIndex = 0;
             this.timerCountLab.Text = "TimerCounts";
             // 
             // timerPlayerFalls
@@ -121,22 +129,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1878, 876);
+            this.ClientSize = new System.Drawing.Size(1824, 861);
             this.Controls.Add(this.timerCountLab);
+            this.Controls.Add(this.pbPlayer);
             this.Controls.Add(this.pbGround);
             this.Controls.Add(this.pbRoof);
-            this.Controls.Add(this.pbTree);
-            this.Controls.Add(this.pbPlayer);
+            this.Controls.Add(this.pbSky);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Game";
             this.Text = "Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Game_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSky)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoof)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGround)).EndInit();
             this.ResumeLayout(false);
@@ -148,12 +156,12 @@
 
         private System.Windows.Forms.PictureBox pbPlayer;
         private System.Windows.Forms.Timer timerMoveEnemy;
-        private System.Windows.Forms.PictureBox pbTree;
         private System.Windows.Forms.Timer timerMakeEnemy;
         private System.Windows.Forms.PictureBox pbRoof;
         private System.Windows.Forms.PictureBox pbGround;
         private System.Windows.Forms.Timer countTime;
         private System.Windows.Forms.Label timerCountLab;
         private System.Windows.Forms.Timer timerPlayerFalls;
+        private System.Windows.Forms.PictureBox pbSky;
     }
 }
