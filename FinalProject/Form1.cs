@@ -87,6 +87,12 @@ namespace FinalProject
             }
         }
 
+        ///<summary>
+        /// Created by: Jeng Leng
+        /// Last Edited by: Jeng Leng
+        /// Last Edit date: 5/6/2020 
+        /// Description: When game start, music plays.
+        /// </summary>
         private void FormMainMenu_Load(object sender, EventArgs e)
         {
             wMP.Play();
