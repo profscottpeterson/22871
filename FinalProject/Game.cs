@@ -55,7 +55,7 @@ namespace FinalProject
             CenterToParent();
 
             //Edited by Jeng
-            audio.SoundLocation = "Our-Mountain_v003.wav";
+            audio.SoundLocation = "Sounds/Our-Mountain_v003.wav";
 
             // Set player jumping to false
             jumping = false;
@@ -169,46 +169,91 @@ namespace FinalProject
         /// Last Edit date: 4/27/2020 
         /// Description: Create a new enemy.
         /// </summary>
-        private void makeEnemy()
+        private void makeEnemy(bool topEnemy)
         {
-            
+
             // TODO: Currently method is not working. Any picturebox created in method does not show up on game form.
             //int position = 500;
             Random rand = new Random();
 
             // TODO: Add image to enemy picturebox 
-            // Create new enemy.
-            Enemy enemy = new Enemy
+            // when topEnemy is true create an enemy on the top of the screen
+            if (topEnemy == true)
             {
+                Enemy enemy = new Enemy
+                {
 
-                // Set enemy values. X_axis is set within size of window (0 - 400) and Y_axis set to size 700.
-                X_axis = rand.Next(0, 350),
-                Y_axis = 700,
-                Width = rand.Next(25, 50),
-                Length = rand.Next(50, 100),
-        };
-            
-            // Make enemy size.
-            enemy.show.Size = new Size(enemy.Width, enemy.Length);
+                    // Set enemy values. X_axis is set to either 0 for the top pipe and Y_axis set to size 700.                
+                    X_axis = 0,
+                    Y_axis = 700,
+                    Width = rand.Next(35, 50),
+                    Length = rand.Next(50, 150),
+                };
+                // Make enemy size.
+                enemy.show.Size = new Size(enemy.Width, enemy.Length);
 
+                // Make enemy color.
+                enemy.show.Image = FinalProject.Properties.Resources.pipe_top;
+                enemy.show.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                // Set's the size and location.
+                enemy.show.Anchor = AnchorStyles.Top;
+                enemy.show.Left = enemy.Y_axis;
+                enemy.show.Top = enemy.X_axis;
 
-            // Make enemy color.
-            enemy.show.Image = FinalProject.Properties.Resources.pipe_bottom;
-            enemy.show.SizeMode = PictureBoxSizeMode.StretchImage;
-            
-            // Set's the size and location.
-            enemy.show.Left = enemy.Y_axis;
-            enemy.show.Top = enemy.X_axis;
+                // Move enemy.
+                enemy.show.Visible = true;
 
-            // Move enemy.
-            enemy.show.Visible = true;
+                // adds enemy to screen
+                Controls.Add(enemy.show);
 
-            // adds enemy to screen
-            Controls.Add(enemy.show);
-            enemy.show.BringToFront();
-            // Add enemy to list.
-            enemies.Add(enemy);               
+                // Display enemy on top of pbSky 
+                enemy.show.BringToFront();
+
+                // Add enemy to list.
+                enemies.Add(enemy);
+
+            }
+
+            // when topEnemy is false create an enemy on the bottom of the screen
+            else if (topEnemy == false)
+            {
+                Enemy enemy = new Enemy
+                {
+
+                    // Set enemy values. X_axis is set to 305 for the bottom pipe and Y_axis set to size 700.                    
+                    Width = rand.Next(35, 50),
+                    Length = rand.Next(175, 225),
+                    X_axis = rand.Next(190, 300),
+                    Y_axis = 700,
+                };
+
+                // Make enemy size.
+                enemy.show.Size = new Size(enemy.Width, enemy.Length);
+
+                enemy.show.BackgroundImageLayout = ImageLayout.Zoom;
+
+                // Make enemy color.
+                enemy.show.Image = FinalProject.Properties.Resources.pipe_bottom;
+                enemy.show.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                // Set's the size and location.
+                enemy.show.Anchor = AnchorStyles.Bottom;
+                enemy.show.Left = enemy.Y_axis;
+                enemy.show.Top = enemy.X_axis;
+
+                // Move enemy.
+                enemy.show.Visible = true;
+
+                // adds enemy to screen
+                Controls.Add(enemy.show);
+
+                // Display enemy on top of pbSky 
+                enemy.show.BringToFront();
+
+                // Add enemy to list.
+                enemies.Add(enemy);
+            }
         }
 
         ///<summary>
@@ -316,7 +361,8 @@ namespace FinalProject
         private void timerMakeEnemy_Tick(object sender, EventArgs e)
         {
             // Call makeEnemy method
-            makeEnemy();
+            makeEnemy(true);
+            makeEnemy(false);
         }
 
         ///<summary>

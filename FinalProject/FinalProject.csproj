@@ -117,6 +117,10 @@
     <Content Include="Images\sky.gif" />
     <Content Include="pipe-bottom.png" />
     <Content Include="pipe-top.png" />
+    <Content Include="Sounds\Our-Mountain_v003.mp3" />
+    <Content Include="Sounds\Our-Mountain_v003.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">

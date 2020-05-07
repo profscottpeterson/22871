@@ -10,6 +10,7 @@ namespace FinalProject
     using System.ComponentModel;
     using System.Data;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace FinalProject
             InitializeComponent();
             
             //Edited by: Jeng
-            wMP.SoundLocation = "Our-Mountain_v003.wav";
+            wMP.SoundLocation = "Sounds/Our-Mountain_v003.wav";
 
             CenterToScreen();
         }
