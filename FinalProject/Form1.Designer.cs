@@ -56,20 +56,20 @@
             floorlbl.AutoSize = true;
             floorlbl.BackColor = System.Drawing.Color.Transparent;
             floorlbl.Cursor = System.Windows.Forms.Cursors.Default;
-            floorlbl.Location = new System.Drawing.Point(432, 236);
+            floorlbl.Location = new System.Drawing.Point(576, 290);
             floorlbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             floorlbl.Name = "floorlbl";
-            floorlbl.Size = new System.Drawing.Size(119, 13);
+            floorlbl.Size = new System.Drawing.Size(157, 17);
             floorlbl.TabIndex = 8;
             floorlbl.Text = "Avoid touching the floor";
             floorlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(204, 189);
+            this.btnExit.Location = new System.Drawing.Point(272, 233);
             this.btnExit.Margin = new System.Windows.Forms.Padding(1);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(78, 33);
+            this.btnExit.Size = new System.Drawing.Size(104, 41);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -77,10 +77,10 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(62, 189);
+            this.btnStart.Location = new System.Drawing.Point(83, 233);
             this.btnStart.Margin = new System.Windows.Forms.Padding(1);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(78, 33);
+            this.btnStart.Size = new System.Drawing.Size(104, 41);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -90,10 +90,10 @@
             // 
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.ImageIndex = 5;
-            this.lblDescription.Location = new System.Drawing.Point(80, 135);
+            this.lblDescription.Location = new System.Drawing.Point(107, 166);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(146, 20);
+            this.lblDescription.Size = new System.Drawing.Size(195, 25);
             this.lblDescription.TabIndex = 2;
             this.lblDescription.Text = "Push up arrow key to go up.";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,10 +105,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbPlayer.BackColor = System.Drawing.Color.Transparent;
             this.pbPlayer.Image = ((System.Drawing.Image)(resources.GetObject("pbPlayer.Image")));
-            this.pbPlayer.Location = new System.Drawing.Point(44, 133);
+            this.pbPlayer.Location = new System.Drawing.Point(59, 164);
             this.pbPlayer.Margin = new System.Windows.Forms.Padding(1);
             this.pbPlayer.Name = "pbPlayer";
-            this.pbPlayer.Size = new System.Drawing.Size(19, 21);
+            this.pbPlayer.Size = new System.Drawing.Size(25, 26);
             this.pbPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPlayer.TabIndex = 3;
             this.pbPlayer.TabStop = false;
@@ -117,10 +117,10 @@
             // 
             this.pbEnemy1.BackColor = System.Drawing.Color.Transparent;
             this.pbEnemy1.Image = global::FinalProject.Properties.Resources.pipe_top;
-            this.pbEnemy1.Location = new System.Drawing.Point(468, 83);
+            this.pbEnemy1.Location = new System.Drawing.Point(624, 102);
             this.pbEnemy1.Margin = new System.Windows.Forms.Padding(1);
             this.pbEnemy1.Name = "pbEnemy1";
-            this.pbEnemy1.Size = new System.Drawing.Size(38, 84);
+            this.pbEnemy1.Size = new System.Drawing.Size(51, 103);
             this.pbEnemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEnemy1.TabIndex = 4;
             this.pbEnemy1.TabStop = false;
@@ -128,10 +128,10 @@
             // lblEnemyDesc
             // 
             this.lblEnemyDesc.AutoSize = true;
-            this.lblEnemyDesc.Location = new System.Drawing.Point(435, 177);
+            this.lblEnemyDesc.Location = new System.Drawing.Point(580, 218);
             this.lblEnemyDesc.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblEnemyDesc.Name = "lblEnemyDesc";
-            this.lblEnemyDesc.Size = new System.Drawing.Size(107, 13);
+            this.lblEnemyDesc.Size = new System.Drawing.Size(142, 17);
             this.lblEnemyDesc.TabIndex = 5;
             this.lblEnemyDesc.Text = "Avoid hitting enemies";
             this.lblEnemyDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -146,10 +146,10 @@
             // 
             this.lblTip.AutoSize = true;
             this.lblTip.BackColor = System.Drawing.Color.Transparent;
-            this.lblTip.Location = new System.Drawing.Point(43, 113);
+            this.lblTip.Location = new System.Drawing.Point(57, 139);
             this.lblTip.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblTip.Name = "lblTip";
-            this.lblTip.Size = new System.Drawing.Size(267, 13);
+            this.lblTip.Size = new System.Drawing.Size(359, 17);
             this.lblTip.TabIndex = 6;
             this.lblTip.Text = "Tip: Press the space bar to alter your movement speed.";
             this.lblTip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,10 +158,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 263);
+            this.pictureBox1.Location = new System.Drawing.Point(-4, 324);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(588, 29);
+            this.pictureBox1.Size = new System.Drawing.Size(784, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -169,38 +169,39 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
-            this.pictureBox2.Location = new System.Drawing.Point(-3, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(-4, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(588, 9);
+            this.pictureBox2.Size = new System.Drawing.Size(784, 11);
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(440, 15);
+            this.label2.Location = new System.Drawing.Point(587, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 13);
+            this.label2.Size = new System.Drawing.Size(149, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "Avoid touching the top";
             // 
             // pbSky
             // 
             this.pbSky.Image = ((System.Drawing.Image)(resources.GetObject("pbSky.Image")));
-            this.pbSky.Location = new System.Drawing.Point(-63, -63);
+            this.pbSky.Location = new System.Drawing.Point(-84, -78);
+            this.pbSky.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbSky.Name = "pbSky";
-            this.pbSky.Size = new System.Drawing.Size(648, 327);
+            this.pbSky.Size = new System.Drawing.Size(864, 402);
             this.pbSky.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSky.TabIndex = 11;
             this.pbSky.TabStop = false;
             // 
             // FormMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 291);
+            this.ClientSize = new System.Drawing.Size(776, 358);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(floorlbl);
@@ -219,6 +220,7 @@
             this.MinimizeBox = false;
             this.Name = "FormMainMenu";
             this.Text = "Main Menu";
+            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemy1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

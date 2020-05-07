@@ -18,6 +18,10 @@ namespace FinalProject
 
     public partial class Game : Form
     {
+        //Edited by: Jeng Leng
+        // Initiate a soundplayer call audio.
+        System.Media.SoundPlayer audio = new System.Media.SoundPlayer();
+
         // Values of Players location
         private int xPlayerLoc;
         private int yPlayerLoc;
@@ -49,6 +53,9 @@ namespace FinalProject
         {
             InitializeComponent();
             CenterToParent();
+
+            //Edited by Jeng
+            audio.SoundLocation = "Our-Mountain_v003.wav";
 
             // Set player jumping to false
             jumping = false;
@@ -237,6 +244,10 @@ namespace FinalProject
                     Height = 400
                 };
 
+                //Edited by: Jeng Leng (5/6/2020)
+                // Stop the music
+                audio.Stop();
+
                 //Edited by: Jeng Leng
                 // Using the timerFormat method
                 timerFormat(count);
@@ -279,7 +290,11 @@ namespace FinalProject
                     Height = 400
 
                 };
-                
+
+                //Edited by: Jeng Leng (5/6/2020)
+                // Stop the music
+                audio.Stop();
+
                 //Edited by: Jeng Leng
                 // Using the timerFormat method
                 timerFormat(count);
@@ -387,6 +402,18 @@ namespace FinalProject
                 gravity = 10;
             }
 
+        }
+
+        ///<summary>
+        /// Created by: Jeng Leng
+        /// Last Edited by: Jeng Leng
+        /// Last Edit date: 5/6/2020 
+        /// Description: When game start, music plays.
+        /// </summary>
+        private void Game_Load(object sender, EventArgs e)
+        {
+            // Play music.
+            audio.Play();
         }
     }
 }

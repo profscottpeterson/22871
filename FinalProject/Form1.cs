@@ -17,9 +17,16 @@ namespace FinalProject
 
     public partial class FormMainMenu : Form
     {
+        //Edited by: Jeng
+        System.Media.SoundPlayer wMP = new System.Media.SoundPlayer();
+
         public FormMainMenu()
         {
             InitializeComponent();
+            
+            //Edited by: Jeng
+            wMP.SoundLocation = "Our-Mountain_v003.wav";
+
             CenterToScreen();
         }
 
@@ -78,6 +85,11 @@ namespace FinalProject
                 // Otherwise, the background color is white.
                 BackColor = Color.White;
             }
+        }
+
+        private void FormMainMenu_Load(object sender, EventArgs e)
+        {
+            wMP.Play();
         }
     }
 }
