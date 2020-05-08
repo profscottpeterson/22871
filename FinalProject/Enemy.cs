@@ -61,6 +61,7 @@ namespace FinalProject
             get { return show; }
             set { show = value; }
         }
+
         public int SetZIndex { get; internal set; }
     }
 }

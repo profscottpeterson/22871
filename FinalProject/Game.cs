@@ -25,9 +25,12 @@ namespace FinalProject
         // Values of Players location
         private int xPlayerLoc;
         private int yPlayerLoc;
-        
+
         // Time played
         private int time;
+
+        // Int for time limit of the game.
+        private int timeLimit;
 
         // Bool for Player still alive
         private bool gameContinues = true;
@@ -36,7 +39,7 @@ namespace FinalProject
         List<Enemy> enemies = new List<Enemy>();
 
         // Value to control speed setting of player
-        bool spacePress = false;
+        bool SpeedChange = false;
 
         //Edited by: Jeng Leng
         // Variable for count, seconds, minutes, and hours.
@@ -45,9 +48,14 @@ namespace FinalProject
         private int countTimeMinutes = 0;
         private int countTimeHours = 0;
 
-        // booleam for player jump.
-        bool jumping;
+        // boolean for player movement
         int gravity = 7;
+
+        // Getter and setter for timeLimit
+        public int TimeLimit{
+            get { return timeLimit; }
+            set { timeLimit = value; }
+        }
 
         public Game()
         {
@@ -56,10 +64,7 @@ namespace FinalProject
 
             //Edited by Jeng
             audio.SoundLocation = "Sounds/Our-Mountain_v003.wav";
-
-            // Set player jumping to false
-            jumping = false;
-
+            
             // Set player location
             xPlayerLoc = 50;
             yPlayerLoc = 50;
@@ -69,43 +74,41 @@ namespace FinalProject
         ///<summary>
         /// Created by: Brandon Biles
         /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/22/2020 
+        /// Last Edit date: 5/08/2020 
         /// Description: When button press occurs move player.
         /// </summary>
         private void Game_KeyDown(object sender, KeyEventArgs e)
-        {           
-            if (e.KeyCode == Keys.Up && gameContinues)
+        {
+            // if up arrow or space bar are pressed move player, but only when the game contiunes is true.
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Space && gameContinues)
             {
 
-                // if space euqals false move player by 6 each time.
-                if (spacePress == false)
+                // if SpeedChange false move player by 6 each time.
+                if (SpeedChange == false)
                 {
-                    // If the up arrow is pressed move player up.
-                    jumping = true;
+                    // Move the player up.
                     gravity = -6;
                 }
 
-                // else when space is true move player by 12 each time.
+                // else when SpeedChange is true move player by 12 each time.
                 else
                 {
-                    // If the up arrow is pressed move player up.
-                    jumping = true;
-                    gravity = -12;                    
+                    // Move the player up.
+                    gravity = -12;
                 }
-            }                    
+            }
 
-            // Speed up or slowdown player speed
-            else if(e.KeyCode == Keys.Space && gameContinues)
-            {
-                // if space is false, change to true
-                if(spacePress == false)
+            // When shift is pressed change the player speed.
+            else if (e.KeyCode == Keys.ShiftKey && gameContinues) {
+                if (SpeedChange == false)
                 {
-                    spacePress = true;
+                    // if SpeedChange is false, change to true.
+                    SpeedChange = true;
                 }
                 else
                 {
-                    // else if space was true, change to false
-                    spacePress = false;
+                    // else if SpeedChange was true, change to false.
+                    SpeedChange = false;
                 }
             }
         }
@@ -113,18 +116,15 @@ namespace FinalProject
         ///<summary>
         /// Created by: Brandon Biles
         /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
+        /// Last Edit date: 5/08/2020 
         /// Description: Create new enemies after a certain amount of ticks.
         /// </summary>
         private void timerMoveEnemy_Tick(object sender, EventArgs e)
         {
             //If player is still alive and time is under 100
-            if(time < 500 && gameContinues)
-            {                
-                // Add more to time. When time is up player wins.
-                time += 1;
-
-                // TODO delete after makeEnemy works correctly  
+            if(time < timeLimit && gameContinues)
+            {               
+                // Move every enemy in 
                 for(int i = 0; i < enemies.Count; i++)
                 {
                     // If the enemy has reached the end of the left side of the window
@@ -134,7 +134,7 @@ namespace FinalProject
                         Random rand = new Random();
                         int randNumb = rand.Next(1, 300);
 
-                        //If Position equals 0 then delete enemy and reset Position
+                        //If Position equals 0 then delete enemy and reset Position.
                         enemies[i].show.Visible = false;
                         enemies.RemoveAt(i);                    
                         
@@ -143,20 +143,28 @@ namespace FinalProject
                     // if enemy hitbox intersects with the player hitbox end game.
                     if (enemies[i].show.Bounds.IntersectsWith(pbPlayer.Bounds))
                     {
+                        // Call EndGame method.
                         EndGame(false);
+
+                        // Break out of loop of the player lost. Break prevents multipule EndGame methods from being called.
+                        break;
                     }
                     
                     // if player hits the ground or the top, end the game
                     if (pbGround.Bounds.IntersectsWith(pbPlayer.Bounds) || pbRoof.Bounds.IntersectsWith(pbPlayer.Bounds))
                     {
+                        // Call EndGame method.
                         EndGame(false);
+
+                        // Break out of loop of the player lost. Break prevents multipule EndGame methods from being called.
+                        break;
                     }
 
                     //Change enemy location
                     enemies[i].show.Left -= 5;
                 }                
             }
-            else if(time >= 100 && gameContinues)
+            else if(time >= timeLimit && gameContinues)
             {
                 // end game player wins.
                 EndGame(true);
@@ -164,19 +172,16 @@ namespace FinalProject
         }
 
         ///<summary>
-        /// Created by: Nick Schuchard
+        /// Created by: Brandon Biles
         /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/27/2020 
+        /// Last Edit date: 5/08/2020 
         /// Description: Create a new enemy.
         /// </summary>
         private void makeEnemy(bool topEnemy)
         {
-
-            // TODO: Currently method is not working. Any picturebox created in method does not show up on game form.
-            //int position = 500;
+            // Instateate new instance of random value;
             Random rand = new Random();
 
-            // TODO: Add image to enemy picturebox 
             // when topEnemy is true create an enemy on the top of the screen
             if (topEnemy == true)
             {
@@ -187,7 +192,7 @@ namespace FinalProject
                     X_axis = 0,
                     Y_axis = 700,
                     Width = rand.Next(35, 50),
-                    Length = rand.Next(50, 150),
+                    Length = rand.Next(25, 200),
                 };
                 // Make enemy size.
                 enemy.show.Size = new Size(enemy.Width, enemy.Length);
@@ -220,17 +225,21 @@ namespace FinalProject
             {
                 Enemy enemy = new Enemy
                 {
-
+                    
                     // Set enemy values. X_axis is set to 305 for the bottom pipe and Y_axis set to size 700.                    
-                    Width = rand.Next(35, 50),
-                    Length = rand.Next(175, 225),
-                    X_axis = rand.Next(190, 300),
+                    Width = rand.Next(40, 50),
+                    Length = rand.Next(185, 200),
+
+                    // Find the top pipe and set the X_axis of the new enemy (bottom pipe) to a set amount of pixels greater 
+                    // than the privious enemys length. This ensure that there is always enough space for the player to advance.
+                    X_axis = enemies[enemies.Count-1].Length + rand.Next(85, 120),
                     Y_axis = 700,
                 };
 
                 // Make enemy size.
                 enemy.show.Size = new Size(enemy.Width, enemy.Length);
 
+                // set enemy image layout to zoom
                 enemy.show.BackgroundImageLayout = ImageLayout.Zoom;
 
                 // Make enemy color.
@@ -259,7 +268,7 @@ namespace FinalProject
         ///<summary>
         /// Created by: Brandon Biles
         /// Last Edited by: Jeng Leng
-        /// Last Edit date: 4/12/2020 
+        /// Last Edit date: 5/06/2020 
         /// Description: Method to end the game. Is called when player is hit by enemy.
         /// </summary>
         private void EndGame(Boolean win)
@@ -358,10 +367,19 @@ namespace FinalProject
             }
         }
 
+        ///<summary>
+        /// Created by: Brandon Biles
+        /// Last Edited by: Brandon Biles
+        /// Last Edit date: 5/08/2020 
+        /// Description: When a tick of the timer occurs create twi instances of an enemy. One instace is top pipe, 
+        /// and the second instance is a bottom pipe.
+        /// </summary>
         private void timerMakeEnemy_Tick(object sender, EventArgs e)
         {
-            // Call makeEnemy method
+            // Call makeEnemy method Fisrt make top pipe enemy
             makeEnemy(true);
+
+            // After top pipe enemy is created then create bottom pipe enemy
             makeEnemy(false);
         }
 
@@ -377,14 +395,17 @@ namespace FinalProject
             // Increase the time count every second.
             count++;
 
+            // Increae time value by 1 for every second of gameplay.
+            time++;
+
             // Show the player how long the game lasted.
             this.timerCountLab.Text = count.ToString();
         }
 
         ///<summary>
         /// Created by: Jeng Leng
-        /// Last Edited by: Jeng Leng
-        /// Last Edit date: 4/12/2020 
+        /// Last Edited by: Brandon Biles
+        /// Last Edit date: 5/08/2020 
         /// Description: Create a class method for the Timer class
         /// </summary>
         private void timerFormat(int seconds)
@@ -392,8 +413,8 @@ namespace FinalProject
             // Set the variable.
             countTimeSeconds = seconds; // Setup the seconds portion
 
-            // While the timerCounts is more than 60, turn it into minutes.
-            while (countTimeSeconds > 60)
+            // While the timerCounts is more than  or equal to 60, turn it into minutes.
+            while (countTimeSeconds >= 60)
             {
                 // Subtract the timer counts by 60.
                 countTimeSeconds = countTimeSeconds - 60;
@@ -401,8 +422,8 @@ namespace FinalProject
                 // Add 1 to the minute count time.
                 countTimeMinutes++;
 
-                // While the countTimeMinutes is more than 60, turn it into hours.
-                while (countTimeMinutes > 60)
+                // While the countTimeMinutes is more than or equal to 60, turn it into hours.
+                while (countTimeMinutes >= 60)
                 {
                     // Subtract the minute count by 60.
                     countTimeMinutes = countTimeMinutes - 60;
@@ -436,15 +457,15 @@ namespace FinalProject
 
         ///<summary>
         /// Created by: Travis
-        /// Last Edited by: Nick
-        /// Last Edit date: 5/3/20 
+        /// Last Edited by: Brandon Biles
+        /// Last Edit date: 5/08/20 
         /// Description: When user let go of key player begins failing again.
         /// </summary>
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Up)
+            // When key is relased change gravity by to ten for player movement. 
+            if(e.KeyCode == Keys.Up || e.KeyCode == Keys.Space)
             {
-                jumping = false;
                 gravity = 10;
             }
 
@@ -452,14 +473,18 @@ namespace FinalProject
 
         ///<summary>
         /// Created by: Jeng Leng
-        /// Last Edited by: Jeng Leng
-        /// Last Edit date: 5/6/2020 
+        /// Last Edited by: Brandon Biles
+        /// Last Edit date: 5/08/2020 
         /// Description: When game start, music plays.
         /// </summary>
         private void Game_Load(object sender, EventArgs e)
         {
-            // Play music.
-            audio.Play();
+            // Play music on loop.
+            audio.PlayLooping();
+
+            // Make two enemies one top pipe and one bottom pipe.
+            makeEnemy(true);
+            makeEnemy(false);
         }
     }
 }
