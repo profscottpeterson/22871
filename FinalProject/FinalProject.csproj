@@ -117,6 +117,7 @@
     <Content Include="Images\sky.gif" />
     <Content Include="pipe-bottom.png" />
     <Content Include="pipe-top.png" />
+    <None Include="Resources\bird.gif" />
     <Content Include="Sounds\Our-Mountain_v003.mp3" />
     <Content Include="Sounds\Our-Mountain_v003.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

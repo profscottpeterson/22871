@@ -35,7 +35,7 @@ namespace FinalProject
         ///<summary>
         /// Created by: Brandon Biles
         /// Last Edited by: Brandon Biles
-        /// Last Edit date: 4/1/2020 
+        /// Last Edit date: 4/01/2020 
         /// Description: Exits the application.
         /// </summary>
         private void btnExit_Click(object sender, EventArgs e)

@@ -48,7 +48,7 @@ namespace FinalProject
         /// Created by: Brandon Biles
         /// Last Edited by: Brandon Biles
         /// Last Edit date: 5/08/2020 
-        /// Description: Starts a new game and closes Main Menu window.
+        /// Description: Starts a new game and close Form1 window.
         /// </summary>
         private void btnStart_Click(object sender, EventArgs e)
         {
