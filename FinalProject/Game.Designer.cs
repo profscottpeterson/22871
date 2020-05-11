@@ -51,7 +51,7 @@
             // timerMakeEnemy
             // 
             this.timerMakeEnemy.Enabled = true;
-            this.timerMakeEnemy.Interval = 3500;
+            this.timerMakeEnemy.Interval = 1800;
             this.timerMakeEnemy.Tick += new System.EventHandler(this.timerMakeEnemy_Tick);
             // 
             // countTime
@@ -62,11 +62,10 @@
             // 
             // timerCountLab
             // 
-            this.timerCountLab.AutoSize = true;
-            this.timerCountLab.Location = new System.Drawing.Point(1294, 21);
-            this.timerCountLab.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.timerCountLab.Location = new System.Drawing.Point(562, 13);
+            this.timerCountLab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.timerCountLab.Name = "timerCountLab";
-            this.timerCountLab.Size = new System.Drawing.Size(177, 32);
+            this.timerCountLab.Size = new System.Drawing.Size(375, 13);
             this.timerCountLab.TabIndex = 0;
             this.timerCountLab.Text = "TimerCounts";
             // 
@@ -80,10 +79,10 @@
             this.pbGround.BackColor = System.Drawing.Color.Transparent;
             this.pbGround.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGround.BackgroundImage")));
             this.pbGround.Image = ((System.Drawing.Image)(resources.GetObject("pbGround.Image")));
-            this.pbGround.Location = new System.Drawing.Point(0, 725);
-            this.pbGround.Margin = new System.Windows.Forms.Padding(2);
+            this.pbGround.Location = new System.Drawing.Point(0, 304);
+            this.pbGround.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pbGround.Name = "pbGround";
-            this.pbGround.Size = new System.Drawing.Size(1826, 141);
+            this.pbGround.Size = new System.Drawing.Size(685, 59);
             this.pbGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGround.TabIndex = 3;
             this.pbGround.TabStop = false;
@@ -91,10 +90,10 @@
             // pbRoof
             // 
             this.pbRoof.BackColor = System.Drawing.Color.Black;
-            this.pbRoof.Location = new System.Drawing.Point(0, -48);
-            this.pbRoof.Margin = new System.Windows.Forms.Padding(2);
+            this.pbRoof.Location = new System.Drawing.Point(0, -20);
+            this.pbRoof.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pbRoof.Name = "pbRoof";
-            this.pbRoof.Size = new System.Drawing.Size(1826, 48);
+            this.pbRoof.Size = new System.Drawing.Size(685, 20);
             this.pbRoof.TabIndex = 4;
             this.pbRoof.TabStop = false;
             // 
@@ -102,24 +101,23 @@
             // 
             this.pbSky.Image = ((System.Drawing.Image)(resources.GetObject("pbSky.Image")));
             this.pbSky.Location = new System.Drawing.Point(0, 0);
-            this.pbSky.Margin = new System.Windows.Forms.Padding(8);
             this.pbSky.Name = "pbSky";
-            this.pbSky.Size = new System.Drawing.Size(1826, 727);
+            this.pbSky.Size = new System.Drawing.Size(685, 305);
             this.pbSky.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSky.TabIndex = 5;
             this.pbSky.TabStop = false;
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1824, 860);
-            this.Controls.Add(this.timerCountLab);
+            this.ClientSize = new System.Drawing.Size(684, 361);
             this.Controls.Add(this.pbGround);
+            this.Controls.Add(this.timerCountLab);
             this.Controls.Add(this.pbRoof);
             this.Controls.Add(this.pbSky);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Game";
@@ -131,7 +129,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbRoof)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSky)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

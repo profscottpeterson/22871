@@ -72,7 +72,7 @@
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(317, 91);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(1);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(78, 33);
             this.btnExit.TabIndex = 1;
@@ -83,7 +83,7 @@
             // btnStart
             // 
             this.btnStart.Location = new System.Drawing.Point(26, 91);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(1);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(78, 33);
             this.btnStart.TabIndex = 0;
@@ -112,7 +112,7 @@
             this.pbPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
             this.pbPlayer.Image = ((System.Drawing.Image)(resources.GetObject("pbPlayer.Image")));
             this.pbPlayer.Location = new System.Drawing.Point(82, 53);
-            this.pbPlayer.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbPlayer.Margin = new System.Windows.Forms.Padding(1);
             this.pbPlayer.Name = "pbPlayer";
             this.pbPlayer.Size = new System.Drawing.Size(19, 21);
             this.pbPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -124,22 +124,21 @@
             this.pbEnemy1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
             this.pbEnemy1.Image = global::FinalProject.Properties.Resources.pipe_top;
             this.pbEnemy1.Location = new System.Drawing.Point(478, 36);
-            this.pbEnemy1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pbEnemy1.Margin = new System.Windows.Forms.Padding(1);
             this.pbEnemy1.Name = "pbEnemy1";
             this.pbEnemy1.Size = new System.Drawing.Size(38, 84);
-            this.pbEnemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbEnemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbEnemy1.TabIndex = 4;
             this.pbEnemy1.TabStop = false;
             // 
             // lblEnemyDesc
             // 
-            this.lblEnemyDesc.AutoSize = true;
             this.lblEnemyDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
             this.lblEnemyDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnemyDesc.Location = new System.Drawing.Point(423, 138);
             this.lblEnemyDesc.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblEnemyDesc.Name = "lblEnemyDesc";
-            this.lblEnemyDesc.Size = new System.Drawing.Size(144, 15);
+            this.lblEnemyDesc.Size = new System.Drawing.Size(1000, 32);
             this.lblEnemyDesc.TabIndex = 5;
             this.lblEnemyDesc.Text = "Avoid hitting enemies";
             this.lblEnemyDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -147,7 +146,7 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 1000;
+            this.timer.Interval = 9000;
             // 
             // lblTip
             // 
@@ -167,7 +166,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.LightGreen;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-3, 263);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(588, 29);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -178,7 +177,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
             this.pictureBox2.Location = new System.Drawing.Point(-3, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(588, 9);
             this.pictureBox2.TabIndex = 9;
@@ -214,7 +213,7 @@
             this.rb1Minute.Checked = true;
             this.rb1Minute.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.rb1Minute.Location = new System.Drawing.Point(129, 81);
-            this.rb1Minute.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.rb1Minute.Margin = new System.Windows.Forms.Padding(1);
             this.rb1Minute.Name = "rb1Minute";
             this.rb1Minute.Size = new System.Drawing.Size(80, 21);
             this.rb1Minute.TabIndex = 2;
@@ -228,7 +227,7 @@
             this.rb2Minutes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
             this.rb2Minutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.rb2Minutes.Location = new System.Drawing.Point(217, 81);
-            this.rb2Minutes.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.rb2Minutes.Margin = new System.Windows.Forms.Padding(1);
             this.rb2Minutes.Name = "rb2Minutes";
             this.rb2Minutes.Size = new System.Drawing.Size(87, 21);
             this.rb2Minutes.TabIndex = 3;
@@ -242,7 +241,7 @@
             this.rb3Minutes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
             this.rb3Minutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.rb3Minutes.Location = new System.Drawing.Point(128, 113);
-            this.rb3Minutes.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.rb3Minutes.Margin = new System.Windows.Forms.Padding(1);
             this.rb3Minutes.Name = "rb3Minutes";
             this.rb3Minutes.Size = new System.Drawing.Size(87, 21);
             this.rb3Minutes.TabIndex = 4;
@@ -256,7 +255,7 @@
             this.rb4Minutes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
             this.rb4Minutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.rb4Minutes.Location = new System.Drawing.Point(217, 113);
-            this.rb4Minutes.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.rb4Minutes.Margin = new System.Windows.Forms.Padding(1);
             this.rb4Minutes.Name = "rb4Minutes";
             this.rb4Minutes.Size = new System.Drawing.Size(87, 21);
             this.rb4Minutes.TabIndex = 5;
@@ -286,7 +285,7 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbSky);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMainMenu";
