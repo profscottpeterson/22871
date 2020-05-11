@@ -48,7 +48,7 @@ namespace FinalProject
         private int countTimeHours = 0;
 
         // boolean for player movement
-        int gravity = 7;
+        int gravity = 10;
 
         // Getter and setter for timeLimit
         public int TimeLimit{
@@ -63,6 +63,7 @@ namespace FinalProject
 
             //Edited by Jeng
             audio.SoundLocation = "Sounds/Our-Mountain_v003.wav";
+            
         }
 
         ///<summary>
@@ -109,8 +110,8 @@ namespace FinalProject
 
         ///<summary>
         /// Created by: Brandon Biles
-        /// Last Edited by: Brandon Biles
-        /// Last Edit date: 5/08/2020 
+        /// Last Edited by: Nicholas Schuchard
+        /// Last Edit date: 5/10/2020 
         /// Description: Create new enemies after a certain amount of ticks.
         /// </summary>
         private void timerMoveEnemy_Tick(object sender, EventArgs e)
@@ -123,11 +124,7 @@ namespace FinalProject
                 {
                     // If the enemy has reached the end of the left side of the window
                     if(enemies[i].Show.Left < 0)
-                    {
-                        // randNumb equals new random number between 1 and 300
-                        Random rand = new Random();
-                        int randNumb = rand.Next(1, 300);
-
+                    {                        
                         // If Position equals 0 then delete enemy and reset Position.
                         enemies[i].Show.Visible = false;
                         enemies.RemoveAt(i);                        
@@ -154,7 +151,7 @@ namespace FinalProject
                     }
 
                     // Change enemy location
-                    enemies[i].Show.Left -= 5;
+                    enemies[i].Show.Left -= 12;
                 }                
             }
             else if(time >= timeLimit && gameContinues)
@@ -481,8 +478,9 @@ namespace FinalProject
             player.Bird.Image = FinalProject.Properties.Resources.bird;
 
             // Instantiate the size of the player
-            player.Height = 40;
-            player.Width = 40;
+            player.Height = 20;
+            player.Width = 20;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
             player.Bird.Size = new Size(player.Width, player.Height);
 
             // Set player starting location
